@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="../css/cmn.css" rel="stylesheet">
+    <title>FizzBuzz</title>
+    <script>
+        let do_fb = () => {
+            let begin = document.getElementById('begin-num');
+            let last = document.getElementById('last-num');
+            let table = document.getElementById('tbl-main');
+            let tr = document.createElement("tr");
+            let tda = document.createElement("td");
+            let tdb = document.createElement("td");
+            let tdc = document.createElement("td");
+            let tdd = document.createElement("td");
+            // 作る
+            tda.append(table.rows.length);
+            tdb.append(begin.value);
+            tdc.append(last.value);
+            tdd.append(fizzbuzz(begin.value,last.value));
+            // 追加
+            tr.appendChild(tda);
+            tr.appendChild(tdb);
+            tr.appendChild(tdc);
+            tr.appendChild(tdd);
+            table.appendChild(tr);
+            return ;
+        };
+
+        let fizzbuzz = (st,en) =>{
+            let str = "";
+            for(let i = st;i <= en;i++){
+                if(i % 3 === 0 && i % 5 === 0){
+                    str += "FizzBuzz!";
+                }else if(i % 5 === 0){
+                    str += "Buzz";
+                }else if(i % 3 === 0){
+                    str += "Fizz";
+                }else{
+                    str += i;
+                }
+                str += ",";
+            }
+            return str.slice(0,-1);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main-container">
+        <form>
+            <p>
+                <label for="begin">開始値</label>
+                <input type="number" id="begin-num" min="0" name="begin">
+            </p>
+            <p>
+                <label for="begin">最終値</label>
+                <input type="number" id="last-num" min="0" name="last">
+            </p>
+            <p>
+                <input type="button" id="do-fb" value="書き込む" onclick="do_fb()">
+            </p>
+        </form>
+        <div>
+            <table class="table" style="margin-top:2em ;" id="tbl-main">
+                <thead>
+                    <th class="col-1">回数</th>
+                    <th class="col-1">開始値</th>
+                    <th class="col-1">最終値</th>
+                    <th class="text-center">fizzbuzz</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

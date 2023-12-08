@@ -1,0 +1,10 @@
+div.main-container{
+    width: 80%;
+    margin: auto;
+    background-color: whitesmoke;
+    color: black;
+}
+body{
+    background-color: black;
+    color: white;
+}
